@@ -1,0 +1,48 @@
+.home-page {
+  position: absolute;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color:rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  font-family: 'Pacifico', cursive;
+  color: white;
+  font-style: italic;
+}
+
+.middle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.middle > * {
+  margin: 10px 20px;
+}
+
+.new-album {
+  width: 18rem;
+  border: 1px dashed lightblue;
+  color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  cursor: pointer;
+}
+
+footer {
+  background-color: pink;
+  height: 200px;
+}
