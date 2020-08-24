@@ -1,19 +1,11 @@
 <div class="home-page">
   <div class="container">
-    <header>
+    <a routerLink="/"><header>
       <p>Photo Sharer</p>
     </header>
+    </a>
 
-    <section class="middle">
-      <div class="new-album">
-        +
-      </div>
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-    </section>
+    <router-outlet></router-outlet>
 
     <footer>
      <p>Feito por <b>Carlos Eduardo</b></p>

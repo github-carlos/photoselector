@@ -1,0 +1,54 @@
+
+<div class="wrapper">
+<form>
+    <h5>Foto de Capa do Álbum</h5>
+    <p-fileUpload chooseLabel="Escolher" mode="basic" accept="image/*" name="album_capa" customUpload="true" (uploadHandler)="uploadAlbumPhoto($event)"></p-fileUpload>
+    <br>
+    <div class="form-group">
+      <label for="name"><h5>Nome</h5></label>
+      <input class="form-control" type="text" id="name" placeholder="Ex: Fotos Casamento Júlio">
+    </div>
+
+    <div class="form-group">
+      <label for="description"><h5>Descrição</h5></label>
+      <input class="form-control" type="text" id="description" placeholder="">
+      <small id="" class="form-text text-muted">Use para adicionar informações sobre o ensaio</small>
+    </div>
+
+    <div class="form-group">
+      <label for="instruction_text"><h5>Instruções</h5></label>
+      <input class="form-control" type="text" id="instruction_text">
+      <small id="" class="form-text text-muted">Estas instruções aparecerão para o usuário</small>
+    </div>
+
+    <div class="form-group">
+      <label for="client_name"><h5>Nome do cliente</h5></label>
+      <input class="form-control" type="text" id="client_name">
+    </div>
+
+
+    <h5>Fotos</h5>
+    <p-fileUpload chooseLabel="Escolher" cancelLabel="Cancelar" [showUploadButton]="false" name="album_photos" customUpload="true" (uploadHandler)="uploadPhotos($event)"
+            multiple="multiple" accept="image/*">
+                        <ng-template pTemplate="content">
+
+            </ng-template>
+    </p-fileUpload>
+    <br>
+    <div class="form-group">
+      <label for="maximum_selection"><h5>Quantidade máxima de fotos escolhidas</h5></label>
+      <input class="form-control" type="number" id="maximum_selection">
+      <small id="" class="form-text text-muted">Deixe em branco ou igual a 0 para não ter limite de escolha</small>
+    </div>
+
+    <div class="form-group">
+      <label><h5>Data limite de escolha</h5></label><br>
+      <p-calendar [showTime]="true" inputId="time"></p-calendar>
+    </div>
+
+    <span class="p-buttonset">
+      <button pButton pRipple label="Criar" icon="pi pi-check"></button>
+      <button pButton pRipple label="Cancelar" icon="pi pi-times"></button>
+    </span>
+</form>
+</div>

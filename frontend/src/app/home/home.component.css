@@ -20,27 +20,7 @@ header {
   font-style: italic;
 }
 
-.middle {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
-.middle > * {
-  margin: 10px 20px;
-}
-
-.new-album {
-  width: 18rem;
-  border: 1px dashed lightblue;
-  color: lightblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 5em;
-  cursor: pointer;
-}
 
 footer {
   height: 200px;

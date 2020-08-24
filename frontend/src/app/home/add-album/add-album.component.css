@@ -1,0 +1,10 @@
+.wrapper {
+  position: relative;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+.p-buttonset > * {
+  margin-right: 16px;
+}
