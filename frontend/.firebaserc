@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "photoselector-4cc04": {
+      "hosting": {
+        "frontend": [
+          "photoselector-4cc04"
+        ]
+      }
+    }
+  }
+}
