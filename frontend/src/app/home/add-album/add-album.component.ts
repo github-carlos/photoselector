@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-add-album',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddAlbumComponent implements OnInit {
 
-  constructor() { }
+  photos: Array<any>;
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
   }
@@ -16,8 +18,15 @@ export class AddAlbumComponent implements OnInit {
 
   }
 
-  uploadPhotos(event) {
+  addedPhotos(event) {
+    console.log('event', event);
+    this.photos = event.currentFiles
+      .map(photoData => ({name: photoData.name, blob: photoData.objectURL.changingThisBreaksApplicationSecurity}));
+    console.log('photos', this.photos);
+  }
 
+  uploadPhotos() {
+    this.firebaseService.uploadPhotos(this.photos);
   }
 
 }

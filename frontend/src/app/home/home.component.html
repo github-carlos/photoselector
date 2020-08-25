@@ -1,9 +1,11 @@
 <div class="home-page">
   <div class="container">
-    <a routerLink="/"><header>
-      <p>Photo Sharer</p>
-    </header>
-    </a>
+    <header>
+        <p routerLink="/">Photo Sharer</p>
+        <div class="top-menu">
+          <i (click)="logout()" class="pi pi-power-off"></i>
+        </div>
+      </header>
 
     <router-outlet></router-outlet>
 

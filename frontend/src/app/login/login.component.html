@@ -1,5 +1,5 @@
 <div class="container-login">
-  <form class="">
+  <form [formGroup]="login">
 
     <div class="logo">
       <p>Photo Sharer</p>
@@ -10,7 +10,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">E-mail</span>
       </div>
-      <input type="text" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1">
+      <input type="text" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1" formControlName="email">
     </div>
 
     <!--Senha-->
@@ -18,9 +18,9 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">Senha</span>
       </div>
-      <input type="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1">
+      <input type="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1" formControlName="password">
     </div>
 
-    <button type="submit" class="btn btn-outline-dark">Entrar</button>
+    <button (click)="makeLogin()" class="btn btn-outline-dark">Entrar</button>
   </form>
 </div>

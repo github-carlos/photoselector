@@ -28,7 +28,7 @@
 
 
     <h5>Fotos</h5>
-    <p-fileUpload chooseLabel="Escolher" cancelLabel="Cancelar" [showUploadButton]="false" name="album_photos" customUpload="true" (uploadHandler)="uploadPhotos($event)"
+    <p-fileUpload chooseLabel="Escolher" cancelLabel="Cancelar" [showUploadButton]="false" name="album_photos" customUpload="true" (onSelect)="addedPhotos($event)"
             multiple="multiple" accept="image/*">
                         <ng-template pTemplate="content">
 
@@ -46,9 +46,10 @@
       <p-calendar [showTime]="true" inputId="time"></p-calendar>
     </div>
 
+
+</form>
     <span class="p-buttonset">
-      <button pButton pRipple label="Criar" icon="pi pi-check"></button>
+      <button (click)="uploadPhotos()" pButton pRipple label="Criar" icon="pi pi-check"></button>
       <button pButton pRipple label="Cancelar" icon="pi pi-times"></button>
     </span>
-</form>
 </div>

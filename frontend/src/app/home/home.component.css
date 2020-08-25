@@ -18,9 +18,22 @@ header {
   font-family: 'Pacifico', cursive;
   color: white;
   font-style: italic;
+  padding: 30px;
 }
 
+header > p {
+  margin-right: 10px;
+  flex: 2;
+  cursor: pointer;
+}
 
+.top-menu {
+  position: relative;
+  display: flex;
+}
+.pi-power-off {
+  cursor: pointer;
+}
 
 footer {
   height: 200px;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddAlbumComponent } from './add-album/add-album.component';
+import { FirebaseService } from '../services/firebase.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,15 @@ import { AddAlbumComponent } from './add-album/add-album.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService, private toastService: ToastService) { }
 
   ngOnInit(): void {
   }
 
-
-  openDialog() {
-
+  logout() {
+    this.firebaseService.logout()
+      .then(() => this.toastService.showSuccessMessage('Logout feito com sucesso.'))
+      .catch(error => console.log('error', error));
   }
+
 }

@@ -1,17 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularFireModule } from '@angular/fire';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { environment } from '../environments/environment';
 
+
+// modules
+import { HomeModule } from './home/home.module';
+import { AppRoutingModule } from './app-routing.module';
+// components
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+
+// firebase imports
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+// primegn imports
+import {ToastModule} from 'primeng/toast';
+
+
+
 // services
-import { FirebaseService } from './services/firebase';
+import { FirebaseService } from './services/firebase.service';
+import { ToastService } from './services/toast.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -24,9 +38,12 @@ import { FirebaseService } from './services/firebase';
     AppRoutingModule,
     HomeModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ToastModule,
+    AngularFireStorageModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, ToastService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
