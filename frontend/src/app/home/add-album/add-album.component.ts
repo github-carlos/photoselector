@@ -24,10 +24,6 @@ export class AddAlbumComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  uploadAlbumPhoto(event) {
-
-  }
-
   selectedDateLimit(event) {
     console.log('date lmit', event);
   }
@@ -44,11 +40,6 @@ export class AddAlbumComponent implements OnInit {
     this.photos = event.currentFiles
       .map(photoData => ({name: photoData.name, blob: photoData.objectURL.changingThisBreaksApplicationSecurity}));
     console.log('photos', this.photos);
-  }
-
-  async uploadPhotos() {
-    const photosUploadedName = await this.firebaseService.uploadPhotos(this.photos);
-    console.log('photosuploaded', photosUploadedName);
   }
 
   async createNewAlbum() {
