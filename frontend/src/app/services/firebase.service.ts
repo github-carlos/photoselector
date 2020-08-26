@@ -25,14 +25,14 @@ export class FirebaseService {
   }
   logout() {
     const ref = this.angularFireStorage.ref('eris.jpeg');
-    ref.getDownloadURL().subscribe(url => console.log(url, 'url'))
+    // ref.getDownloadURL().subscribe(url => console.log(url, 'url'))
     return this.angularFireAuth.signOut().then((_) => this.router.navigate(['/login']));
   }
 
   async uploadPhotos(photos: any) {
 
     const promises = photos.map((photo) => {
-      const ref = this.angularFireStorage.ref(photo.name);
+      const ref = this.angularFireStorage.ref(photo.name + new Date().toString());
       return new Promise((resolve, reject) => {
         this.getFileBlob(photo.blob, (blob) => {
           console.log('blbo', blob);
@@ -42,7 +42,7 @@ export class FirebaseService {
       });
     });
     const result = await Promise.all(promises);
-    console.log('rseult', result);
+    return result.map((photo: any) => photo.metadata.name);
   }
 
   getFileBlob (url, cb) {

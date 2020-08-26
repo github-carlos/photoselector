@@ -6,10 +6,14 @@ import { HomeComponent } from './home.component';
 import { CardComponent } from './card/card.component';
 import { AddAlbumComponent } from './add-album/add-album.component';
 import { AlbumListComponent } from './album-list/album-list.component';
+
+import { SharedModule } from '../shared/shared.module';
 // PrimgeNG modules
 import {CalendarModule} from 'primeng/calendar';
 import {FileUploadModule} from 'primeng/fileupload';
 import {ButtonModule} from 'primeng/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ProgressBarComponent } from '../shared/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +24,14 @@ import {ButtonModule} from 'primeng/button';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     HomeRoutingModule,
     CalendarModule,
     FileUploadModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ],
+  entryComponents: [ProgressBarComponent]
 
 })
 export class HomeModule { }

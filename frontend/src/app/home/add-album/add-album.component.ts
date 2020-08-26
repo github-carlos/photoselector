@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-add-album',
@@ -9,6 +10,14 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class AddAlbumComponent implements OnInit {
 
   photos: Array<any>;
+  newAlbum = new FormGroup({
+    name: new FormControl(''),
+    client_name: new FormControl(''),
+    description: new FormControl(''),
+    date_limit: new FormControl(),
+    instruction_text: new FormControl(),
+    maximum_selection: new FormControl()
+  });
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
@@ -18,6 +27,10 @@ export class AddAlbumComponent implements OnInit {
 
   }
 
+  selectedDateLimit(event) {
+    console.log('date lmit', event);
+  }
+
   addedPhotos(event) {
     console.log('event', event);
     this.photos = event.currentFiles
@@ -25,8 +38,13 @@ export class AddAlbumComponent implements OnInit {
     console.log('photos', this.photos);
   }
 
-  uploadPhotos() {
-    this.firebaseService.uploadPhotos(this.photos);
+  async uploadPhotos() {
+    const photosUploadedName = await this.firebaseService.uploadPhotos(this.photos);
+    console.log('photosuploaded', photosUploadedName);
+  }
+
+  async createNewAlbum() {
+    console.log('formGroup', this.newAlbum);
   }
 
 }
