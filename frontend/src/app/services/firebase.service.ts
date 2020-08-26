@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage} from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+import { UploadTaskSnapshot } from '@angular/fire/storage/interfaces';
 
 @Injectable()
 export class FirebaseService {
@@ -29,6 +30,10 @@ export class FirebaseService {
     return this.angularFireAuth.signOut().then((_) => this.router.navigate(['/login']));
   }
 
+  add(collectionName, data) {
+    return this.angularFireStore.collection(collectionName).add(data);
+  }
+
   async uploadPhotos(photos: any) {
 
     const promises = photos.map((photo) => {
@@ -42,7 +47,13 @@ export class FirebaseService {
       });
     });
     const result = await Promise.all(promises);
-    return result.map((photo: any) => photo.metadata.name);
+    const response = [];
+    for (const photo of result) {
+      const name = photo['metadata']['name'];
+      const url =  await photo['ref']['getDownloadURL']();
+      response.push({name, url});
+    }
+    return response;
   }
 
   getFileBlob (url, cb) {

@@ -8,3 +8,6 @@
 .p-buttonset > * {
   margin-right: 16px;
 }
+.progressbar {
+  margin: 10px;
+}

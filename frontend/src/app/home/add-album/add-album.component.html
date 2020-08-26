@@ -2,7 +2,7 @@
 <div class="wrapper">
 <form [formGroup]="newAlbum">
     <h5>Foto de Capa do Álbum</h5>
-    <p-fileUpload chooseLabel="Escolher" mode="basic" accept="image/*" name="album_capa" customUpload="true" (uploadHandler)="uploadAlbumPhoto($event)"></p-fileUpload>
+    <p-fileUpload (onSelect)="addedAlbumPhoto($event)" chooseLabel="Escolher" mode="basic" accept="image/*" name="album_capa" customUpload="true" (uploadHandler)="uploadAlbumPhoto($event)"></p-fileUpload>
     <br>
     <div class="form-group">
       <label for="name"><h5>Nome</h5></label>
@@ -50,7 +50,8 @@
 </form>
     <span class="p-buttonset">
       <button (click)="createNewAlbum()" pButton pRipple label="Criar" icon="pi pi-check"></button>
+      <button (click)="uploadPhotos()" pButton pRipple label="testar fotos" icon="pi pi-check"></button>
       <button pButton pRipple label="Cancelar" icon="pi pi-times"></button>
     </span>
-    <app-progress-bar></app-progress-bar>
+    <app-progress-bar class="progressbar"></app-progress-bar>
 </div>
