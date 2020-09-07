@@ -27,15 +27,22 @@ exports.addedNeededFieldsToAlbum = functions.firestore.document('/albums/{docume
       //const data = snap.data();
 
       const addedData = {
-        status: 'Não escolhido',
+        status: 'Não finalizado',
         link: context.params.documentId
       }
-      // Access the parameter `{documentId}` with `context.params`
-      functions.logger.log('Salvando documento', context.params.documentId);
-      
-      
-      // You must return a Promise when performing asynchronous tasks inside a Functions such as
-      // writing to Cloud Firestore.
-      // Setting an 'uppercase' field in Cloud Firestore document returns a Promise.
-      return snap.ref.set(addedData, {merge: true});
+      // tslint:disable-next-line: no-floating-promises
+      admin.firestore()
+        .collection('user_selection')
+        .add({
+          photos: snap.data().photos,
+          album: snap.id,
+          link: snap.data().link
+        }).then(() => {
+          functions.logger.log('salvou user_selection');
+          functions.logger.log('Salvando documento', context.params.documentId);
+          // You must return a Promise when performing asynchronous tasks inside a Functions such as
+          // writing to Cloud Firestore.
+          // Setting an 'uppercase' field in Cloud Firestore document returns a Promise.
+          return snap.ref.set(addedData, {merge: true});
+        });
     });
