@@ -2,7 +2,7 @@
 <div class="wrapper">
 <form [formGroup]="newAlbum">
     <h5>Foto de Capa do Álbum</h5>
-    <p-fileUpload (onSelect)="addedAlbumPhoto($event)" chooseLabel="Escolher" mode="basic" accept="image/*" name="album_capa" customUpload="true" (uploadHandler)="uploadAlbumPhoto($event)"></p-fileUpload>
+    <p-fileUpload (onSelect)="addedAlbumPhoto($event)" chooseLabel="Escolher" mode="basic" accept="image/*" name="album_capa" customUpload="true"></p-fileUpload>
     <br>
     <div class="form-group">
       <label for="name"><h5>Nome</h5></label>
@@ -36,9 +36,8 @@
     </p-fileUpload>
     <br>
     <div class="form-group">
-      <label for="maximum_selection"><h5>Quantidade máxima de fotos escolhidas</h5></label>
-      <input class="form-control" type="number" id="maximum_selection" formControlName="maximum_selection">
-      <small id="" class="form-text text-muted">Deixe em branco ou igual a 0 para não ter limite de escolha</small>
+      <label for="maximum_selection"><h5>Pacote contratado (coloque a quantidade já paga pelo cliente)</h5></label>
+      <input class="form-control" type="number" id="maximum_selection" formControlName="pack_number">
     </div>
 
     <div class="form-group">
@@ -50,8 +49,8 @@
 </form>
     <span class="p-buttonset">
       <button (click)="createNewAlbum()" pButton pRipple label="Criar" icon="pi pi-check"></button>
-      <button (click)="uploadPhotos()" pButton pRipple label="testar fotos" icon="pi pi-check"></button>
       <button pButton pRipple label="Cancelar" icon="pi pi-times"></button>
     </span>
-    <app-progress-bar class="progressbar"></app-progress-bar>
+    <br>
+    <app-progress-bar *ngIf="isUploading"  class="progressbar"></app-progress-bar>
 </div>

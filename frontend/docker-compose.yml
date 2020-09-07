@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  superstatic:
+    image: superstatic
+    build:
+      context: .
+      dockerfile: node_modules/superstatic/Dockerfile
+    ports:
+      - 80

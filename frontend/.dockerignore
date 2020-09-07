@@ -1,0 +1,11 @@
+/node_modules
+package.json
+package-lock.json
+.git
+.firebase
+.editorconfig
+/e2e
+/docs
+.gitignore
+*.zip
+*.md

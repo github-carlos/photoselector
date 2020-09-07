@@ -3,8 +3,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage} from '@angular/fire/storage';
 import { Router } from '@angular/router';
-import { finalize } from 'rxjs/operators';
-import { UploadTaskSnapshot } from '@angular/fire/storage/interfaces';
 
 @Injectable()
 export class FirebaseService {
