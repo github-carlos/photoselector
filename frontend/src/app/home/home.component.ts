@@ -17,7 +17,12 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.firebaseService.logout()
-      .then(() => this.toastService.showSuccessMessage('Logout feito com sucesso.'))
+      .then(() => {
+        this.toastService.showSuccessMessage('Logout feito com sucesso.');
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userPassword');
+      })
       .catch(error => console.log('error', error));
   }
 

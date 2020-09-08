@@ -53,6 +53,7 @@ export class AddAlbumComponent implements OnInit {
   }
 
   async createNewAlbum() {
+    if (!this.isUploading) {
     this.checkIfFormIsValid()
       .then(async () => {
         console.log('formGroup', this.newAlbum);
@@ -86,6 +87,11 @@ export class AddAlbumComponent implements OnInit {
           'Formulário não preenchido corretamente'
         );
       });
+    } else {
+      this.toastService.showErrorMessage(
+        'Já está sendo salvo'
+      );
+    }
   }
 
   private checkIfFormIsValid() {

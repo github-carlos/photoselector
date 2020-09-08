@@ -1,0 +1,10 @@
+img {
+  width: 200px;
+  height: auto;
+}
+.card-title {
+  font-weight: bold;
+}
+.card-description {
+  color: #363636;
+}

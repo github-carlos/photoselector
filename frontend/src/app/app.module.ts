@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 
 // modules
 import { HomeModule } from './home/home.module';
+import { UserSelectionModule } from './user-selection/user-selection.module';
 import { AppRoutingModule } from './app-routing.module';
 // components
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { MessageService } from 'primeng/api';
     HttpClientModule,
     AppRoutingModule,
     HomeModule,
+    UserSelectionModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

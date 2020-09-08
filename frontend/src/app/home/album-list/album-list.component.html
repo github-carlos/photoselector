@@ -2,9 +2,14 @@
   <div [routerLink]="['/new']" routerLinkActive="router-link-active"  class="new-album">
       +
   </div>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+  <section *ngFor="let album of albums">
+    <app-card
+    [urlPhotoCapa]="album.photo_capa"
+    [name]="album.name"
+    [description]="album.description"
+    [client_name]="album.client_name"
+    [link]="album.link"
+    [status]="album.status"
+    ></app-card>
+  </section>
 </section>
