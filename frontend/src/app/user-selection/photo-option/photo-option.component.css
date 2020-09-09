@@ -1,4 +1,5 @@
 .frame-border {
+  position: relative;
   width: 400px;
   height: 400px;
   background-color: white;
@@ -6,7 +7,6 @@
   padding: 10px;
 }
 .image-option {
-  position: relative;
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -27,6 +27,21 @@ img {
   opacity: 0.75;
 }
 
+.icon {
+  position: absolute;
+  color: white;
+  bottom: 11.7px;
+  right: 47%;
+}
+
+.comment {
+  position: absolute;
+  background-color: white;
+  color: black;
+  bottom: 11.7px;
+  right: 35%;
+}
+
 .modal {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -44,7 +59,6 @@ img {
 .modal-content {
   margin: auto;
   max-width: 100vw;
-  min-width: 700px;
   width: auto;
   height: auto;
   display: block;

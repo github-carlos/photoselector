@@ -7,11 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { UserSelectionRoutingModule } from './user-selection.routing';
 import { PhotoOptionComponent } from './photo-option/photo-option.component';
 
+// primegn
+import {ButtonModule} from 'primeng/button';
+
 @NgModule({
   declarations: [HomeComponent, PhotoOptionComponent],
   imports: [
     CommonModule,
-    UserSelectionRoutingModule
+    UserSelectionRoutingModule,
+    ButtonModule
   ]
 })
 export class UserSelectionModule { }

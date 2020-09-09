@@ -9,6 +9,7 @@ export class PhotoOptionComponent implements OnInit {
 
   @Input() imageURL: string;
   showModal = false;
+  selected = false;
   constructor() {
   }
 

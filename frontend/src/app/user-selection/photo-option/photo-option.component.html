@@ -1,16 +1,47 @@
-<div class="frame-border">
+<div
+  class="frame-border"
+  [ngStyle]="{
+    'border-color': selected ? '#44cf25' : '#9c9797',
+    'background-color': selected ? '#44cf25' : 'white'
+  }"
+>
   <div (click)="showModal = true" class="image-option">
     <img [src]="imageURL" alt="" />
   </div>
+  <button
+    pButton
+    pRipple
+    [ngStyle]="{
+      color: selected ? '#44cf25' : 'black',
+      'background-color': selected ? 'green' : 'white'
+    }"
+    type="button"
+    icon="pi pi-heart"
+    class="p-button-rounded icon"
+    [class]="selected ? null : 'p-button-outlined'"
+    (click)="selected = !selected"
+  ></button>
+
+  <button
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-comment"
+    class="p-button-rounded comment"
+  ></button>
 </div>
 
 <!-- The Modal -->
-<div id="myModal" class="modal" [ngStyle]="{'display': showModal ? 'block' : 'none'}">
+<div
+  id="myModal"
+  class="modal"
+  [ngStyle]="{ display: showModal ? 'block' : 'none' }"
+>
   <!-- The Close Button -->
   <span class="close" (click)="showModal = false">&times;</span>
 
   <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01" [src]="imageURL"/>
+  <img class="modal-content" id="img01" [src]="imageURL" />
 
   <!-- Modal Caption (Image Text) -->
   <div id="caption"></div>
