@@ -24,7 +24,8 @@ export class AlbumListComponent implements OnInit {
     this.subscription = this.firebaseService.onLogged.subscribe((logged) => {
       console.log('user logged', logged);
       if (logged) {
-        this.firebaseService.getData('albums').subscribe(
+        this.firebaseService.getData('albums', {property: 'owner', comparation: '==', expectedValue: localStorage.getItem('userEmail')})
+          .subscribe(
           (data) => {
             console.log('data', data);
             this.albums = data;

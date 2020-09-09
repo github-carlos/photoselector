@@ -66,6 +66,7 @@ export class AddAlbumComponent implements OnInit {
 
         const obj = {
           ...this.newAlbum.value,
+          owner: localStorage.getItem('userEmail'),
           photos: photosUploadedName.map((photo) => ({
             comment: '',
             url: photo?.url,

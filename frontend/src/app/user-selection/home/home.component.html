@@ -1,1 +1,5 @@
-<p>home works!</p>
+<div class="photos-container">
+  <div *ngFor="let photo of albumSelection?.photos">
+    <app-photo-option [imageURL]="photo.url"></app-photo-option>
+  </div>
+</div>

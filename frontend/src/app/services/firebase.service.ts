@@ -1,10 +1,9 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage} from '@angular/fire/storage';
-import * as firebase from 'firebase';
 import { Router } from '@angular/router';
-import { Observable, Subscriber, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class FirebaseService {
@@ -19,6 +18,7 @@ export class FirebaseService {
       if (user) {
         this.onLogged.next(true);
         localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('userEmail', user.email);
       } else {
         this.onLogged.next(false);
       }
@@ -33,8 +33,9 @@ export class FirebaseService {
     return this.angularFireAuth.signOut().then((_) => this.router.navigate(['/login']));
   }
 
-  getData(collectionName: string) {
-    return this.angularFireStore.collection(collectionName).valueChanges();
+  getData(collectionName: string, query: {property: string, comparation: any, expectedValue: string}) {
+    return this.angularFireStore
+      .collection(collectionName, ref => ref.where(query.property, query.comparation, query.expectedValue)).valueChanges();
   }
 
   add(collectionName, data) {
