@@ -1,5 +1,10 @@
 <div class="photos-container">
   <div *ngFor="let photo of albumSelection?.photos">
-    <app-photo-option [imageURL]="photo.url"></app-photo-option>
+    <app-photo-option
+    [imageURL]="photo.url"
+    (liked)="saveLikedPhoto($event)"
+    (commented)="saveCommentedPhoto($event)"
+    >
+  </app-photo-option>
   </div>
 </div>

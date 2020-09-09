@@ -23,6 +23,13 @@ img {
   object-position: center;
 }
 
+app-photo-comment {
+  position: absolute;
+  width: 94.5%;
+  margin: 1px;
+  bottom: 13px;
+}
+
 .image-option:hover {
   opacity: 0.75;
 }

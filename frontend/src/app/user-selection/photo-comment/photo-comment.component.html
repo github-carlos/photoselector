@@ -1,0 +1,10 @@
+<div class="comment-container">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Comentário</label>
+     <textarea [(ngModel)]="comment" placeholder="Digite alguma observação/prefência sobre a foto" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="buttons">
+      <button  (click)="notifyData()" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded"></button>
+      <button (click)="closeComment()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger"></button>
+    </div>
+</div>

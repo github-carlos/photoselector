@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('home user selection');
-   this.loadPhotos();
-   //this.loadFakeData();
+   //this.loadPhotos();
+   this.loadFakeData();
 
   }
 
@@ -46,5 +46,12 @@ export class HomeComponent implements OnInit {
         }
       },
       err => console.log('err', err));
+  }
+
+  saveLikedPhoto(liked: boolean) {
+    console.log('saving liked photo', liked);
+  }
+  saveCommentedPhoto(comment: string) {
+    console.log('saving commented photo', comment);
   }
 }

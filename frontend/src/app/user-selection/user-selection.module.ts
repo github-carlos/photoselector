@@ -9,13 +9,16 @@ import { PhotoOptionComponent } from './photo-option/photo-option.component';
 
 // primegn
 import {ButtonModule} from 'primeng/button';
+import { PhotoCommentComponent } from './photo-comment/photo-comment.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [HomeComponent, PhotoOptionComponent],
+  declarations: [HomeComponent, PhotoOptionComponent, PhotoCommentComponent],
   imports: [
     CommonModule,
     UserSelectionRoutingModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
   ]
 })
 export class UserSelectionModule { }

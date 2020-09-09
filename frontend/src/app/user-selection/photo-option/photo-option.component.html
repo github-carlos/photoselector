@@ -9,6 +9,7 @@
     <img [src]="imageURL" alt="" />
   </div>
   <button
+    (click)="emitLike()"
     pButton
     pRipple
     [ngStyle]="{
@@ -19,7 +20,6 @@
     icon="pi pi-heart"
     class="p-button-rounded icon"
     [class]="selected ? null : 'p-button-outlined'"
-    (click)="selected = !selected"
   ></button>
 
   <button
@@ -28,7 +28,12 @@
     type="button"
     icon="pi pi-comment"
     class="p-button-rounded comment"
+    (click)="showCommentBox = !showCommentBox"
   ></button>
+  <app-photo-comment
+  (closeCommentBox)="showCommentBox = false"
+  (data)="emitComment($event)"
+  *ngIf="showCommentBox"></app-photo-comment>
 </div>
 
 <!-- The Modal -->

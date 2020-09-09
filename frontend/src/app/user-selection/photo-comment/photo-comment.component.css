@@ -1,0 +1,20 @@
+.comment-container {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #424242;
+}
+
+label {
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.buttons > * {
+  margin-left: 15px;
+}
