@@ -4,8 +4,7 @@
     <h5 class="card-title"> {{ name }} </h5>
     <p class="card-description"> {{ description }} </p>
     <p> Cliente: {{ client_name }} </p>
-    <p> <a [href]="link" target="_blank">Link</a> </p>
-    <p> {{ status }} </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p *ngIf="link"> <a [href]="link" target="_blank">Link</a> </p>
+    <!--<p> {{ status }} </p> -->
   </div>
 </div>

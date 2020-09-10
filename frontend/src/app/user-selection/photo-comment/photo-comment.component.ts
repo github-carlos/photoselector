@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photo-comment',
@@ -10,7 +10,7 @@ export class PhotoCommentComponent implements OnInit {
 
   @Output() closeCommentBox = new EventEmitter();
   @Output() data = new EventEmitter();
-  comment: string;
+  @Input() comment: string;
   constructor() { }
 
   ngOnInit(): void {

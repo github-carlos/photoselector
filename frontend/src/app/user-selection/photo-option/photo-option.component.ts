@@ -9,26 +9,43 @@ export class PhotoOptionComponent implements OnInit {
 
   @Input() imageURL: string;
   showModal = false;
-  selected = false;
+  @Input() selected = false;
   showCommentBox = false;
 
   @Output() liked = new EventEmitter<boolean>();
   @Output() commented = new EventEmitter<string>();
+  @Output() isShowingSomething = new EventEmitter<boolean>();
+
+  @Input() comment: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    console.log('imageUrl', this.imageURL)
   }
 
   emitComment(data) {
     this.showCommentBox = false;
     this.commented.emit(data);
+    this.emitShowSomething();
+  }
+
+  emitShowModal(value) {
+    this.showModal = value;
+    this.emitShowSomething();
+  }
+
+  emitShowCommentBox() {
+    this.showCommentBox = !this.showCommentBox;
+    this.emitShowSomething();
   }
 
   emitLike() {
     this.selected = !this.selected;
     this.liked.emit(this.selected);
+  }
+
+  emitShowSomething() {
+    this.isShowingSomething.emit(this.showCommentBox || this.showModal);
   }
 }

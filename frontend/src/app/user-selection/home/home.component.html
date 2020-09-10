@@ -2,9 +2,16 @@
   <div *ngFor="let photo of albumSelection?.photos">
     <app-photo-option
     [imageURL]="photo.url"
-    (liked)="saveLikedPhoto($event)"
-    (commented)="saveCommentedPhoto($event)"
+    (liked)="saveLikedPhoto($event, photo)"
+    (commented)="saveCommentedPhoto($event, photo)"
+    [comment]="photo.comment"
+    [selected]="photo.selected"
+    (isShowingSomething)="showSavingButton = !$event"
     >
   </app-photo-option>
   </div>
+  <button *ngIf="showSavingButton" (click)="saveChanges()" type="button" class="btn btn-primary save-button">
+    <i *ngIf="!isSaving" class="pi pi-check" style="font-size: 2rem"></i>
+    <i *ngIf="isSaving" class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+  </button>
 </div>

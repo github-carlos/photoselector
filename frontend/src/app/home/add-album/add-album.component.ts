@@ -31,7 +31,6 @@ export class AddAlbumComponent implements OnInit {
   ngOnInit(): void {}
 
   selectedDateLimit(event) {
-    console.log('date lmit', event);
     this.newAlbum.get('date_limit').setValue(event);
   }
 
@@ -40,23 +39,19 @@ export class AddAlbumComponent implements OnInit {
       name: photoData.name,
       blob: photoData.objectURL.changingThisBreaksApplicationSecurity,
     }));
-    console.log('event', event);
-    console.log('albumPhoto', this.albumPhoto);
   }
   addedPhotos(event) {
-    console.log('event', event);
     this.photos = event.currentFiles.map((photoData) => ({
       name: photoData.name,
       blob: photoData.objectURL.changingThisBreaksApplicationSecurity,
     }));
-    console.log('photos', this.photos);
   }
 
   async createNewAlbum() {
     if (!this.isUploading) {
     this.checkIfFormIsValid()
       .then(async () => {
-        console.log('formGroup', this.newAlbum);
+        this.isUploading = true;
         const photosUploadedName = await this.firebaseService.uploadPhotos(
           this.photos
         );
@@ -74,7 +69,6 @@ export class AddAlbumComponent implements OnInit {
           })),
           photo_capa: uploadAlbumPhoto?.url,
         };
-        this.isUploading = true;
         this.firebaseService
           .add('albums', obj)
           .then((result) => {

@@ -5,7 +5,7 @@
     'background-color': selected ? '#44cf25' : 'white'
   }"
 >
-  <div (click)="showModal = true" class="image-option">
+  <div (click)="emitShowModal(true)" class="image-option">
     <img [src]="imageURL" alt="" />
   </div>
   <button
@@ -13,7 +13,7 @@
     pButton
     pRipple
     [ngStyle]="{
-      color: selected ? '#44cf25' : 'black',
+      color: selected ? 'white' : 'black',
       'background-color': selected ? 'green' : 'white'
     }"
     type="button"
@@ -28,11 +28,13 @@
     type="button"
     icon="pi pi-comment"
     class="p-button-rounded comment"
-    (click)="showCommentBox = !showCommentBox"
+    [ngStyle]="{'background-color': comment.length === 0 ? null : '#1d63cc', 'color': comment.length === 0 ? null : 'white'}"
+    (click)="emitShowCommentBox()"
   ></button>
   <app-photo-comment
-  (closeCommentBox)="showCommentBox = false"
+  (closeCommentBox)="emitShowCommentBox()"
   (data)="emitComment($event)"
+  [comment]="comment"
   *ngIf="showCommentBox"></app-photo-comment>
 </div>
 
@@ -43,7 +45,7 @@
   [ngStyle]="{ display: showModal ? 'block' : 'none' }"
 >
   <!-- The Close Button -->
-  <span class="close" (click)="showModal = false">&times;</span>
+  <span class="close" (click)="emitShowModal(false)">&times;</span>
 
   <!-- Modal Content (The Image) -->
   <img class="modal-content" id="img01" [src]="imageURL" />

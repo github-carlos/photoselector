@@ -14,3 +14,14 @@
 .photos-container > * {
   margin: 1rem;
 }
+
+.save-button {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+  box-shadow: 0px 5px 5px #ccc;
+  border-radius: 100%;
+  right: 0;
+  bottom: 2rem;
+}
